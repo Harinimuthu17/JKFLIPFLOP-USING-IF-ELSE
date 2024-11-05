@@ -1,4 +1,4 @@
-## JKFLIPFLOP-USING-IF-ELSE
+# JKFLIPFLOP-USING-IF-ELSE
 
 **AIM:** 
 
@@ -34,59 +34,71 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
+step-1 Go to quartus software.
+
+step-2 Set new environment.
+
+step-3 Type the code to implement SR flipflop using verilog and validating their functionality using their functional tables.
+
+step-4 Run the program.
+
+step-5 Give inputs in the waveform table .
+
+step-6 Run the program.
+
+
+**PROGRAM**
 ```
-1.Go to quartus software.
-2.Set new environment.
-3.Type the code to implement SR flipflop using verilog and validating their functionality using their functional tables.
-4.Run the program.
-5.Give inputs in the waveform table.
-6.Run the program.
+Program for flipflops and verify its truth table in quartus using Verilog programming.
+Developed by:VIGNESH R
+RegisterNumber:212223240177
 ```
-## PROGRAM
-### Program for flipflops and verify its truth table in quartus using Verilog programming. 
+```verilog
+module JKFLIPFLOP(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
 
-**Developed by: M.Harini**
-
-**RegisterNumber: 212222240035**
-
-```
-module jk_ff(q,qb,j,k,clock,reset);
-input j,k,clock, reset;
-output reg q,qb;
-
-always@(posedge(clock))
-
-begin
-    if(reset)
-	   begin 
-		  q <= q;
-		  qb <= qb;
-		  end
-	else
-		  begin
-		    if(j != k)
-			 begin 
-			   q <= j;
-				qb <= k;
-				end
-			else if(j == 1 && k == 1)	
-			  begin
-			    q <= 1'bz;
-				 qb <= 1'bz;
-				end
-		 end
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+   begin
+	   if(j==0 && k==0)
+		   begin
+			q<=q;
+			qb<=qb;
+			end
+		else if(j!=k)
+		   begin
+			q<=j;
+			qb<=k;
+			end
+		else if(j==1 && k==1)
+		    begin
+			 q<=~q;
+			 qb<=~qb;
+			 end
 	end
+end	
 endmodule
 ```
 
 **RTL LOGIC FOR FLIPFLOPS**
 
-![Screenshot 2024-04-21 210135](https://github.com/Vinothini1711/EX-No.4.2.-CUT-SECTION-OF-SOLIDS/assets/144300204/218070e8-e11f-4517-88f1-7c1f1ca83e30)
+![image](https://github.com/23004513/JKFLIPFLOP-USING-IF-ELSE/assets/138973069/48cc0eb5-e90d-45bd-bb4e-000dcf05a796)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
-![Screenshot 2024-04-21 210214](https://github.com/Vinothini1711/EX-No.4.2.-CUT-SECTION-OF-SOLIDS/assets/144300204/85ed0671-9426-4dac-bf2b-0f0a3d14707d)
+![image](https://github.com/23004513/JKFLIPFLOP-USING-IF-ELSE/assets/138973069/d4b06ea5-ea16-4979-8e0c-56e0bf0706b1)
+
 
 **RESULTS**
 
-Implementation of JK flipflop using verilog and validating their functionality using their functional tables is executed and the output is verified successfully.
+Thus,the code executed successfully.
